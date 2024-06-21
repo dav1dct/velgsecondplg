@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class barang extends Model
 {
     use HasFactory;
-
     protected $fillable = ['nama', 'deskripsi', 'harga', 'stock'];
-    
     public function pesanans()
     {
         return $this->hasMany(Pesanan::class);

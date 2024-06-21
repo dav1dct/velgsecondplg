@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class pembeli extends Model
 {
     use HasFactory;
-
     protected $fillable = ['nama','email','hp','alamat'];
-
     public function pesanans()
     {
         return $this->hasMany(Pesanan::class);

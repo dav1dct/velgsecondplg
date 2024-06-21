@@ -16,6 +16,5 @@ class Pembayaran extends Model
     {
         return $this->belongsTo(Barang::class);
     }
-
     protected $fillable = ['pesanan_id','jumlah','harga'];
 }

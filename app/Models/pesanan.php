@@ -15,12 +15,10 @@ class Pesanan extends Model
         'tanggal_pesanan',
         'total_pesanan',
     ];
-
     public function pembeli()
     {
         return $this->belongsTo(Pembeli::class);
     }
-
     public function barang()
     {
         return $this->belongsTo(Barang::class);
