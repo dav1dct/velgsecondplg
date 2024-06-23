@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pembeli;
+use App\Models\Pembeli;
 use Illuminate\Http\Request;
 
 class PembeliController extends Controller
