@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <h2>Tambah Pembayaran</h2>
-    <form action="{{ route('pembayaran.store') }}" method="POST">
+    <form action="{{ route('pembayaran.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="pesanan_id" class="form-label">Pesanan</label>
@@ -31,6 +31,13 @@
             <input type="text" name="harga" id="harga" class="form-control" value="{{ old('harga') }}">
             @error('harga')
                 <div class="text-danger">{{ $message }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="url_foto">Bukti Pembayaran</label>
+            <input type="file" class="form-control" name="url_foto">
+            @error('url_foto')
+                <span class="text-danger">{{ $message }}</span> 
             @enderror
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>

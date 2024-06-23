@@ -33,19 +33,15 @@ class PembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'pesanan_id' => 'required|exists:pesanans,id',
-            'jumlah' => 'required|numeric',
-            'harga' => 'required',
-        ]);
+        $imageName = time().'.'.$request->url_foto->extension();  
+        $request->url_foto->move(public_path('images'), $imageName);
 
-        $request->validate([
-            'pesanan_id' => 'required|exists:pesanans,id',
-            'jumlah' => 'required|numeric',
-            'harga' => 'required',
+        Pembayaran::create([
+            'pesanan_id' => $request->pesanan_id,
+            'jumlah' => $request->jumlah,
+            'harga' => $request->harga,
+            'url_foto' => $imageName,
         ]);
-
-        Pembayaran::create($request->all());
         return redirect()->route('pembayaran.index')->with('success', 'Pembayaran berhasil dibuat.');
     }
 
@@ -67,6 +63,7 @@ class PembayaranController extends Controller
             'pesanan_id' => 'required|exists:pesanans,id',
             'jumlah' => 'required|numeric',
             'harga' => 'required',
+            'url_foto' => 'required',
         ]);
 
         $pembayaran->update($request->all());

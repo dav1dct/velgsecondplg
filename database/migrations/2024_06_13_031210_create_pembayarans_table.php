@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('pesanan_id')->references('id')->on('pesanans');
             $table->integer('jumlah');
             $table->decimal('harga', 10, 2);
+            $table->string('url_foto');
             $table->timestamps();
         });
     }

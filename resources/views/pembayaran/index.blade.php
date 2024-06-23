@@ -12,9 +12,7 @@
     @endif
 
     <div class="mb-3">
-        @can('create', App\Models\Pembayaran::class)
             <a href="{{ route('pembayaran.create') }}" class="btn btn-primary">Tambah Pembayaran</a>
-        @endcan
     </div>
 
     <table class="table table-bordered">
@@ -24,6 +22,7 @@
                 <th>Pesanan</th>
                 <th>Jumlah</th>
                 <th>Harga</th>
+                <th>Bukti Pembayaran</th>
                 <th></th>
             </tr>
         </thead>
@@ -34,6 +33,7 @@
                     <td>{{ $p->pesanan->pembeli->nama }} - {{ $p->pesanan->barang->nama }}</td>
                     <td>{{ $p->jumlah }}</td>
                     <td>{{ $p->harga }}</td>
+                    <td><img src="{{ url('images/'.$p["url_foto"])}}" style="width: 100px; height: auto;"></td>
                     <td>
                         @can('update', $p)
                             <a href="{{ route('pembayaran.edit', $p->id) }}" class="btn btn-warning">Edit</a>

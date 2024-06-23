@@ -36,6 +36,13 @@
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="url_foto">Url Foto</label>
+            <input type="file" class="form-control" name="url_foto">
+            @error('url_foto')
+                <span class="text-danger">{{$message}}</span> 
+            @enderror
+        </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
 </div>
