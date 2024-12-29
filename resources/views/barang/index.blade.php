@@ -31,15 +31,6 @@
                         @can('update', $barang)
                             <a href="{{ route('barang.edit', $barang->id) }}" class="btn btn-warning">Edit</a>
                         @endcan
-
-                        @can('delete', $barang)
-                        <form id="delete-form-{{ $barang->id }}" action="{{ route('barang.destroy', $barang->id) }}" method="POST" style="display:inline-block;">
-                        @csrf
-                        @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-button">Delete</button>
-                        @endcan
-                        
-                    </form>
                     </td>
                 </tr>
             @endforeach

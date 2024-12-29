@@ -29,14 +29,6 @@
                         @can('update', $p)
                         <a href="{{ route('pesanan.edit', $p->id) }}" class="btn btn-warning">Edit</a>
                         @endcan
-
-                        @can('delete', $p) 
-                        <form action="{{ route('pesanan.destroy', $p->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger delete-button" data-id="{{ $p->id }}">Delete</button>
-                            @endcan
-                        </form>
                     </td>
                 </tr>
             @endforeach
